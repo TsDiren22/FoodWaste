@@ -1,0 +1,164 @@
+﻿@using FoodWaste.Domain;
+@model IEnumerable<Package>
+
+@{
+    ViewData["Title"] = "Index";
+    IEnumerable<Package> studentPackages = ViewBag.StudentPackages;
+    IEnumerable<Package> employeePackages = ViewBag.EmployeePackages;
+    
+}
+
+<h1>Available Packages</h1>
+
+@if (studentPackages == null)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupExpiry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContainsAdultProducts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cafeteria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupExpiry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContainsAdultProducts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cafeteria.Location)
+            </td>
+            <td>
+                @if (studentPackages != null)
+                {
+                        <a asp-action="Reserve" asp-route-id="@item.Id">Reserve</a>
+                    }
+                    else
+                    {
+                        if(item.Student == null)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit |</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id"> Delete |</a>
+                        }
+                    <a asp-action = "Details" asp-route-id = "@item.Id"> Details </a> 
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@if (studentPackages != null)
+{
+    <h1>Your packages</h1>
+}
+else if (employeePackages != null)
+{
+    <h1>Packages at other cafeterias</h1>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupExpiry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContainsAdultProducts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MealType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cafeteria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in studentPackages ?? employeePackages)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PickupDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PickupExpiry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContainsAdultProducts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MealType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cafeteria.Location)
+                </td>
+                <td>
+                    @if (studentPackages != null)
+                    {
+                        <form method="post" asp-action="Cancel">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit">Cancel</button>
+                        </form>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id"> Details </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

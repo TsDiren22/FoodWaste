@@ -1,0 +1,89 @@
+﻿@model FoodWaste.Domain.Package
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Package</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PickupDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PickupDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PickupExpiry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PickupExpiry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ContainsAdultProducts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContainsAdultProducts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MealType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MealType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Student)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Student.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cafeteria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cafeteria.Location)
+        </dd>
+    </dl>
+</div>
+<h1>Products</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Products)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow" style="width: 18rem;">
+                        @if (item.Picture != null && item.Picture.Length > 0)
+                        {
+                            string imageBase64 = Convert.ToBase64String(item.Picture);
+                            string imageSource = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+                            <img class="card-img-top" src="@imageSource" alt="Card image cap">
+                        }
+                        <div class="card-body border-top">
+                            <h5 class="card-title">@item.Name</h5>
+                            <input class="food-select" type="checkbox" name="products" value="@item.Id" id="product-@item.Id" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

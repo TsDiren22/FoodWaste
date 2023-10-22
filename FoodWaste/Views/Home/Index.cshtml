@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow" style="width: 18rem;">
+                    <a asp-controller="Packages">
+                        <img class="card-img-top" src="~/images/packages.png" alt="Card image cap">
+                        <div style="text-align:center" class="card-body border-top">
+                            <b style="font-size:18px">Packages</b>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow" style="width: 18rem;">
+                    <a asp-controller="Products">
+                        <img class="card-img-top" src="~/images/products.png" alt="Card image cap">
+                        <div style="text-align:center" class="card-body border-top">
+                            <b style="font-size:18px">Products</b>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        opacity: 0.75;
+    }
+</style>

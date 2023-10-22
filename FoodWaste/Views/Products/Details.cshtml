@@ -1,0 +1,40 @@
+﻿@model FoodWaste.Domain.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAlcoholic)
+        </dt>
+        <dd class="col-sm-10">
+            @switch (Model.IsAlcoholic)
+            {
+                case true:
+                    <span>&#10003;</span>
+                    break;
+                case false:
+                    <span>&#10007;</span>
+                    break;
+            }
+        </dd>
+    </dl>
+    <img src="@ViewBag.Image" width="300">
+</div>
+<br />
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

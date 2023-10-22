@@ -1,0 +1,41 @@
+﻿@model IEnumerable<FoodWaste.Domain.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow" style="width: 18rem;" onclick="toggleCheckbox('@item.Id')">
+                        @if (item.Picture != null && item.Picture.Length > 0)
+                        {
+                            string imageBase64 = Convert.ToBase64String(item.Picture);
+                            string imageSource = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+                            <img class="card-img-top" src="@imageSource" alt="Card image cap">
+                        }
+                        <div class="card-body border-top">
+                            <h5 class="card-title">@item.Name</h5>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            @if (item.IsAlcoholic)
+                            {
+                                <p style="font-size: 12px; color: red; padding: 0; margin: 0;">*This product is alcoholic*</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@using FoodWaste.Domain;
+@model IEnumerable<FoodWaste.Domain.Product>
+
+@{
+    ViewData["Title"] = "ProductSelect";
+}
+
+<h1>ProductSelect</h1>
+<form method="post" asp-action="ProductSelect">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow" style="width: 18rem;" onclick="toggleCheckbox('@item.Id')">
+                            @if (item.Picture != null && item.Picture.Length > 0)
+                            {
+                                string imageBase64 = Convert.ToBase64String(item.Picture);
+                                string imageSource = string.Format("data:image/jpeg;base64,{0}", imageBase64);
+                                <img class="card-img-top" src="@imageSource" alt="Card image cap">
+                            }
+                            <div class="card-body border-top">
+                                <h5 class="card-title">@item.Name</h5>
+                                <input class="food-select" type="checkbox" name="products" value="@item.Id" id="product-@item.Id" />
+                                <label class="card-checkmark" for="product-@item.Id">
+                                    <i class="fa fa-check-circle" style="font-size: 48px; color: rgb(49, 252, 49); z-index:1"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+    function toggleCheckbox(checkboxId) {
+        var checkbox = $('#product-' + checkboxId);
+        checkbox.prop('checked', !checkbox.prop('checked'));
+        // Write string to console
+        console.log('Checkbox ' + checkboxId + ' is now ' + checkbox.prop('checked'));
+    }
+
+    // Execute the function when the document is ready.
+    $(document).ready(function () {
+        @if (ViewBag.SelectedProducts != null && ViewBag.SelectedProducts.Count > 0)
+        {
+            @foreach (Product product in ViewBag.SelectedProducts)
+            {
+                @:toggleCheckbox('@product.Id');
+            }
+        }
+    });
+</script>
+
+
+<style>
+
+    .card-checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0.5rem;
+        visibility: hidden;
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    input[type="checkbox"]:checked + .card-checkmark {
+        visibility: visible;
+    }
+
+    input[type="checkbox"]:checked + album {
+        opacity: 0.7;
+    }
+
+    .album {
+        opacity: 1;
+    }
+</style>                            
