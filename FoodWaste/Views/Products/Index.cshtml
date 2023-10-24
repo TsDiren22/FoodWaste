@@ -25,9 +25,12 @@
                         }
                         <div class="card-body border-top">
                             <h5 class="card-title">@item.Name</h5>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
                             <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            @if(ViewBag.IsEmployee){
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            }
+
                             @if (item.IsAlcoholic)
                             {
                                 <p style="font-size: 12px; color: red; padding: 0; margin: 0;">*This product is alcoholic*</p>

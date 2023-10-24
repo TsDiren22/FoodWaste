@@ -70,19 +70,18 @@ namespace FoodWaste.Infrastructure.Data
             );
 
             modelBuilder.Entity<Product>().HasData(
-                new Product { Id = 1, IsAlcoholic = false, Name = "Döner", Picture = ImageToByteArray(".\\wwwroot\\images\\doner.jpg") },
-                new Product { Id = 2, IsAlcoholic = false, Name = "Frikandel", Picture = ImageToByteArray(".\\wwwroot\\images\\frikandel.jpg") },
-                new Product { Id = 3, IsAlcoholic = true, Name = "Bier", Picture = ImageToByteArray(".\\wwwroot\\images\\bier.jpg")}
+                new Product { Id = 1, IsAlcoholic = false, Name = "Döner", Picture = ImageToByteArray(".\\wwwroot\\images\\doner.jpg"), PictureType = "image/jpeg" },
+                new Product { Id = 2, IsAlcoholic = false, Name = "Frikandel", Picture = ImageToByteArray(".\\wwwroot\\images\\frikandel.jpg"), PictureType = "image/jpeg" },
+                new Product { Id = 3, IsAlcoholic = true, Name = "Bier", Picture = ImageToByteArray(".\\wwwroot\\images\\bier.jpg"), PictureType = "image/jpeg" }
             );
 
             modelBuilder.Entity<Package>().HasData(
-                new Package { Id = 1, CafeteriaId = 1, ContainsAdultProducts = false, MealType = "Warm", Name = "Warm Meal Deluxe", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M, StudentId = 1 },
-                new Package { Id = 2, CafeteriaId = 2, ContainsAdultProducts = false, MealType = "Warm", Name = "Warm Breakfast Deluxe", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M, StudentId = 2 },
-                new Package { Id = 3, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "Cold", Name = "Cold Meal Deluxe", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M, StudentId = 3 },
-                new Package { Id = 4, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test1", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M},
-                new Package { Id = 5, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test2", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M},
-                new Package { Id = 6, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test3", PickupDate = new DateTime(), PickupExpiry = new DateTime(), Price = 10.0M}
-
+                new Package { Id = 1, CafeteriaId = 1, ContainsAdultProducts = false, MealType = "Warm", Name = "Warm Meal Deluxe", PickupDate = DateTime.Now.AddDays(1), PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M, StudentId = 1, },
+                new Package { Id = 2, CafeteriaId = 2, ContainsAdultProducts = false, MealType = "Warm", Name = "Warm Breakfast Deluxe", PickupDate = DateTime.Now.AddDays(1), PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M, StudentId = 2 },
+                new Package { Id = 3, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "Cold", Name = "Cold Meal Deluxe", PickupDate = DateTime.Now.AddDays(1), PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M, StudentId = 3 },
+                new Package { Id = 4, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test1", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
+                new Package { Id = 5, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test2", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
+                new Package { Id = 6, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test3", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M}
             );
         }
     }

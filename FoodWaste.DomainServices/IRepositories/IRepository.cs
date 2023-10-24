@@ -14,6 +14,6 @@ namespace FoodWaste.DomainServices.IRepositories
         void Add(T entity);
         public void Update(T entity);
         public void Delete(T entity);
-        T? FindByCondition(Expression<Func<T, bool>> predicate);
+        T? FindByCondition(Expression<Func<T, bool>> predicate); 
     }
 }

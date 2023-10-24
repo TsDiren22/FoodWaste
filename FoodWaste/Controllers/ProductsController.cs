@@ -3,6 +3,9 @@ using FoodWaste.Domain;
 using FoodWaste.DomainServices.IRepositories;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
+using FoodWaste.WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace FoodWaste.WebApp.Controllers
 {
@@ -10,14 +13,25 @@ namespace FoodWaste.WebApp.Controllers
     {
         // GET: ProductsController
         readonly IRepository<Product> _productRepository;
+        readonly UserManager<IdentityUser> _userManager;
+        readonly IRepository<Employee> _employeeRepository;
 
-        public ProductsController(IRepository<Product> productRepository)
+        public ProductsController(IRepository<Product> productRepository, UserManager<IdentityUser> userManager, IRepository<Employee> employeeRepository)
         {
             _productRepository = productRepository;
+            _userManager = userManager;
+            _employeeRepository = employeeRepository;
         }
 
         public IActionResult Index()
         {
+            var user = _userManager.GetUserAsync(User).Result;
+            Employee? employee = null;
+            if (user != null)
+            {
+                employee = _employeeRepository.FindByCondition(e => e.Email == user.Email) ?? null;
+            }
+            ViewBag.IsEmployee = employee != null ? true : false;
             return View(_productRepository.GetAll());
 
         }
@@ -37,28 +51,44 @@ namespace FoodWaste.WebApp.Controllers
             }
 
             string picture = Convert.ToBase64String(product.Picture);
-            ViewBag.Image = string.Format("data:image/png;base64,{0}", picture);
+            ViewBag.Image = string.Format("data:product.Picture/png;base64,{0}", picture);
             return View(product);
         }
 
+        [Authorize(Policy = "Employee")]
         // GET: ProductsController/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Policy = "Employee")]
         // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> CreateAsync(ProductCreateViewModel product)
         {
             if (ModelState.IsValid)
             {
+                var newProduct = new Product();
+                
+                using (var memoryStream = new MemoryStream())
+                {
+                    await product.PictureFile.CopyToAsync(memoryStream);
+                    newProduct.Picture = memoryStream.ToArray();
+                    newProduct.PictureType = product.PictureFile.ContentType;
+                }
+
+                newProduct.Name = product.Name;
+                newProduct.IsAlcoholic = product.IsAlcoholic;
+
+                _productRepository.Add(newProduct);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
         }
-
+        
+        [Authorize(Policy = "Employee")]
         // GET: ProductsController/Edit/5
         public IActionResult Edit(int? id)
         {
@@ -78,6 +108,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: ProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Employee")]
         public IActionResult Edit(int id, Product product)
         {
             if (id != product.Id)
@@ -108,6 +139,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // GET: ProductsController/Delete/5
+        [Authorize(Policy = "Employee")]
         public IActionResult Delete(int? id)
         {
             if (id == null || _productRepository.GetAll() == null)
@@ -122,13 +154,14 @@ namespace FoodWaste.WebApp.Controllers
             }
 
             string picture = Convert.ToBase64String(product.Picture);
-            ViewBag.Image = string.Format("data:image/png;base64,{0}", picture);
+            ViewBag.Image = string.Format("data:product.Picture/png;base64,{0}", picture);
             return View(product);
         }
 
         // POST: ProductsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Policy = "Employee")]
         public IActionResult Delete(int id)
         {
             if (_productRepository.GetAll() == null)

@@ -8,6 +8,7 @@ using FoodWaste.DomainServices.IRepositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Diagnostics;
 
 namespace FoodWaste.API.Controllers
 {

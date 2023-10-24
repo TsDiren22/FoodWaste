@@ -251,3 +251,4 @@ C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.DomainServ
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.DomainServices\bin\Release\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.DomainServices\bin\Release\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.DomainServices\bin\Release\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.DomainServices\bin\Release\net6.0\Microsoft.AspNetCore.Http.Features.dll
