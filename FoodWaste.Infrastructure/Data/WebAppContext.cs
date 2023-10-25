@@ -81,7 +81,19 @@ namespace FoodWaste.Infrastructure.Data
                 new Package { Id = 3, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "Cold", Name = "Cold Meal Deluxe", PickupDate = DateTime.Now.AddDays(1), PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M, StudentId = 3 },
                 new Package { Id = 4, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test1", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
                 new Package { Id = 5, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test2", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
-                new Package { Id = 6, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Cold", Name = "Test3", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M}
+                new Package { Id = 6, CafeteriaId = 2, ContainsAdultProducts = true, MealType = "Warm", Name = "Test3", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
+                new Package { Id = 7, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "Warm", Name = "Test4", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M},
+                new Package { Id = 8, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "Test", Name = "Test5", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 9, CafeteriaId = 2, ContainsAdultProducts = true, MealType = "Something", Name = "Test6", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 10, CafeteriaId = 2, ContainsAdultProducts = true, MealType = "Test", Name = "Test7", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 11, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "Testtttt", Name = "Test8", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 12, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "TESTTTTT", Name = "Test9", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 13, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "warm", Name = "Test10", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 14, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "cold", Name = "Test11", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 15, CafeteriaId = 1, ContainsAdultProducts = true, MealType = "COLD", Name = "Test12", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 16, CafeteriaId = 2, ContainsAdultProducts = true, MealType = "WARM", Name = "Test13", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 17, CafeteriaId = 2, ContainsAdultProducts = true, MealType = "SUPER WARM", Name = "Test14", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M },
+                new Package { Id = 18, CafeteriaId = 3, ContainsAdultProducts = true, MealType = "SOME", Name = "Test15", PickupExpiry = DateTime.Now.AddDays(2), Price = 10.0M }
             );
         }
     }

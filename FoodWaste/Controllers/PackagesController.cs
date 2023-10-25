@@ -40,11 +40,13 @@ namespace FoodWaste.WebApp.Controllers
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
             var student = _studentRepository.FindByCondition(x => x.Email == user.Email);
-
+            
             if (student != null)
             {
                 ViewBag.StudentPackages = _packageRepository.GetAll().Where(x => x.StudentId == student.Id).OrderBy(x => x.PickupExpiry);
                 ViewBag.EmployeePackages = null;
+                ViewBag.Cafeterias = _cafeteriaRepository.GetAll();
+                ViewBag.StudentCity = student.CityOfStudy;
                 return View(_packageRepository.GetAll().Where(x => x.StudentId == null).OrderBy(x => x.PickupExpiry));
             }
             else

@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
     IEnumerable<Package> studentPackages = ViewBag.StudentPackages;
     IEnumerable<Package> employeePackages = ViewBag.EmployeePackages;
-    
+    IEnumerable<Cafeteria> cafeterias = ViewBag.Cafeterias;
 }
 
 <h1>Available Packages</h1>
@@ -15,6 +15,21 @@
     <p>
         <a asp-action="Create">Create New</a>
     </p>
+}
+else
+{
+    <label>Filter on location:</label><br />
+    <select id="cafeteriaFilter" onchange="FilterPackages()">
+        <option value="All">All Cafeterias</option>
+        @foreach (Cafeteria c in cafeterias)
+        {
+            string selected = c.City == ViewBag.StudentCity ? "selected" : "";
+            <option value="@c.Location" selected="@selected">@c.Name</option>
+        }
+    </select>
+
+    <input type="text" id="mealTypeFilter" placeholder="Filter by Meal Type" oninput="FilterPackages()" />
+    <button type="button" onclick="ClearInput()">Clear</button>
 }
 <table class="table">
     <thead>
@@ -45,7 +60,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr data-cafeteria="@item.Cafeteria.Location" data-meal-type="@item.MealType">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -162,3 +177,56 @@ else if (employeePackages != null)
         }
     </tbody>
 </table>
+
+<script type="text/javascript">
+    function ShowHideDiv(select) {
+        var selectedCafeteria = select.value;
+        var packageRows = document.querySelectorAll("tr[data-cafeteria]");
+
+        for (const row of packageRows) {
+            const rowCafeteria = row.getAttribute("data-cafeteria");
+
+            if (selectedCafeteria === "All" || selectedCafeteria === rowCafeteria) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+        FilterPackages();
+    }
+
+    function FilterPackages() {
+        var selectedCafeteria = document.getElementById("cafeteriaFilter").value;
+        var filterText = document.getElementById("mealTypeFilter").value.toLowerCase();
+
+        var packageRows = document.querySelectorAll("tr[data-cafeteria]");
+
+        for (const row of packageRows) {
+            const rowCafeteria = row.getAttribute("data-cafeteria");
+            const rowMealType = row.getAttribute("data-meal-type").toLowerCase();
+
+            if (
+                (selectedCafeteria === "All" || selectedCafeteria === rowCafeteria) &&
+                (filterText === "" || rowMealType.includes(filterText))
+            ) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    }
+
+    function ClearInput() {
+        var inputField = document.getElementById("mealTypeFilter");
+        inputField.value = "";
+        FilterPackages();
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectElement = document.getElementById("cafeteriaFilter");
+        if (selectElement) {
+            selectElement.dispatchEvent(new Event("change"));
+        }
+    });
+</script>

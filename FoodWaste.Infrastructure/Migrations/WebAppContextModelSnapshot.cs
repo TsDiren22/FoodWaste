@@ -179,8 +179,8 @@ namespace FoodWaste.Infrastructure.Migrations
                             ContainsAdultProducts = false,
                             MealType = "Warm",
                             Name = "Warm Meal Deluxe",
-                            PickupDate = new DateTime(2023, 10, 25, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4586),
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4640),
+                            PickupDate = new DateTime(2023, 10, 26, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(250),
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(294),
                             Price = 10.0m,
                             StudentId = 1
                         },
@@ -191,8 +191,8 @@ namespace FoodWaste.Infrastructure.Migrations
                             ContainsAdultProducts = false,
                             MealType = "Warm",
                             Name = "Warm Breakfast Deluxe",
-                            PickupDate = new DateTime(2023, 10, 25, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4649),
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4653),
+                            PickupDate = new DateTime(2023, 10, 26, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(306),
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(313),
                             Price = 10.0m,
                             StudentId = 2
                         },
@@ -203,8 +203,8 @@ namespace FoodWaste.Infrastructure.Migrations
                             ContainsAdultProducts = true,
                             MealType = "Cold",
                             Name = "Cold Meal Deluxe",
-                            PickupDate = new DateTime(2023, 10, 25, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4659),
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4663),
+                            PickupDate = new DateTime(2023, 10, 26, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(324),
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(331),
                             Price = 10.0m,
                             StudentId = 3
                         },
@@ -215,7 +215,7 @@ namespace FoodWaste.Infrastructure.Migrations
                             ContainsAdultProducts = true,
                             MealType = "Cold",
                             Name = "Test1",
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4668),
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(340),
                             Price = 10.0m
                         },
                         new
@@ -225,17 +225,137 @@ namespace FoodWaste.Infrastructure.Migrations
                             ContainsAdultProducts = true,
                             MealType = "Cold",
                             Name = "Test2",
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4673),
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(349),
                             Price = 10.0m
                         },
                         new
                         {
                             Id = 6,
+                            CafeteriaId = 2,
+                            ContainsAdultProducts = true,
+                            MealType = "Warm",
+                            Name = "Test3",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(358),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CafeteriaId = 3,
+                            ContainsAdultProducts = true,
+                            MealType = "Warm",
+                            Name = "Test4",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(367),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 8,
                             CafeteriaId = 1,
                             ContainsAdultProducts = true,
-                            MealType = "Cold",
-                            Name = "Test3",
-                            PickupExpiry = new DateTime(2023, 10, 26, 11, 26, 8, 314, DateTimeKind.Local).AddTicks(4678),
+                            MealType = "Test",
+                            Name = "Test5",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(375),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CafeteriaId = 2,
+                            ContainsAdultProducts = true,
+                            MealType = "Something",
+                            Name = "Test6",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(385),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CafeteriaId = 2,
+                            ContainsAdultProducts = true,
+                            MealType = "Test",
+                            Name = "Test7",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(396),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CafeteriaId = 3,
+                            ContainsAdultProducts = true,
+                            MealType = "Testtttt",
+                            Name = "Test8",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(405),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CafeteriaId = 3,
+                            ContainsAdultProducts = true,
+                            MealType = "TESTTTTT",
+                            Name = "Test9",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(414),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CafeteriaId = 1,
+                            ContainsAdultProducts = true,
+                            MealType = "warm",
+                            Name = "Test10",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(422),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CafeteriaId = 3,
+                            ContainsAdultProducts = true,
+                            MealType = "cold",
+                            Name = "Test11",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(431),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CafeteriaId = 1,
+                            ContainsAdultProducts = true,
+                            MealType = "COLD",
+                            Name = "Test12",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(440),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CafeteriaId = 2,
+                            ContainsAdultProducts = true,
+                            MealType = "WARM",
+                            Name = "Test13",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(448),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CafeteriaId = 2,
+                            ContainsAdultProducts = true,
+                            MealType = "SUPER WARM",
+                            Name = "Test14",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(457),
+                            Price = 10.0m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CafeteriaId = 3,
+                            ContainsAdultProducts = true,
+                            MealType = "SOME",
+                            Name = "Test15",
+                            PickupExpiry = new DateTime(2023, 10, 27, 16, 27, 37, 615, DateTimeKind.Local).AddTicks(466),
                             Price = 10.0m
                         });
                 });
