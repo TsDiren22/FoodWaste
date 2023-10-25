@@ -70,7 +70,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // GET: Packages/Create
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Create()
         {
             return View();
@@ -79,7 +79,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: Packages/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Create(Package package)
         {
             if (ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace FoodWaste.WebApp.Controllers
             return View(package);
         }
 
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult ProductSelect(string key = null)
         {
             if (key != null)
@@ -124,7 +124,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // POST: Packages/ProductSelect
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         [HttpPost]
         public IActionResult ProductSelect(List<int> products)
         {
@@ -152,7 +152,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // GET: Packages/Edit/5
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Edit(int? id)
         {
             if (id == null || _packageRepository.GetAll() == null) return NotFound();
@@ -165,7 +165,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // POST: Packages/Edit/5
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Package package)
@@ -189,7 +189,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // GET: Packages/Delete/5
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Delete(int? id)
         {
             if (id == null || _packageRepository.GetAll() == null)
@@ -206,7 +206,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: Packages/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Delete(int id)
         {
             if (_packageRepository.GetAll() == null) return Problem("Entity set 'WebAppContext.Package'  is null.");
@@ -218,7 +218,7 @@ namespace FoodWaste.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [Authorize(Policy = "Student")]
+        [Authorize(Policy = "StudentOnly")]
         public IActionResult Reserve(int? id)
         {
             if (id == null || _packageRepository.GetAll() == null) return NotFound();
@@ -228,7 +228,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: Packages/Reserve/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "Student")]
+        [Authorize(Policy = "StudentOnly")]
         public IActionResult Reserve(ReserveModel reserveModel)
         {
             if (ModelState.IsValid)
@@ -264,7 +264,7 @@ namespace FoodWaste.WebApp.Controllers
         }
         
         [HttpPost]
-        [Authorize(Policy = "Student")]
+        [Authorize(Policy = "StudentOnly")]
         public IActionResult Cancel(int id)
         {
             var package = _packageRepository.GetById(id);

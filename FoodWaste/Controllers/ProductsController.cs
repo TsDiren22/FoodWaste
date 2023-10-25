@@ -55,14 +55,14 @@ namespace FoodWaste.WebApp.Controllers
             return View(product);
         }
 
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         // GET: ProductsController/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -88,7 +88,7 @@ namespace FoodWaste.WebApp.Controllers
             return View(product);
         }
         
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         // GET: ProductsController/Edit/5
         public IActionResult Edit(int? id)
         {
@@ -108,7 +108,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: ProductsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Edit(int id, Product product)
         {
             if (id != product.Id)
@@ -139,7 +139,7 @@ namespace FoodWaste.WebApp.Controllers
         }
 
         // GET: ProductsController/Delete/5
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Delete(int? id)
         {
             if (id == null || _productRepository.GetAll() == null)
@@ -161,7 +161,7 @@ namespace FoodWaste.WebApp.Controllers
         // POST: ProductsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Policy = "Employee")]
+        [Authorize(Policy = "EmployeeOnly")]
         public IActionResult Delete(int id)
         {
             if (_productRepository.GetAll() == null)
