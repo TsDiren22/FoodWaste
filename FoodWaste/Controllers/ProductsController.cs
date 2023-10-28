@@ -173,7 +173,7 @@ namespace FoodWaste.WebApp.Controllers
             {
                 _productRepository.Delete(product);
             }
-
+            else return NotFound();
             return RedirectToAction(nameof(Index));
         }
 

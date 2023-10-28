@@ -6,6 +6,10 @@ C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Humanizer.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\MessagePack.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\MessagePack.Annotations.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Build.dll
@@ -32,6 +36,8 @@ C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Logging.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Options.dll
@@ -241,9 +247,3 @@ C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\obj
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\obj\Release\net6.0\FoodWaste.Domain.pdb
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\obj\Release\net6.0\FoodWaste.Domain.genruntimeconfig.cache
 C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\obj\Release\net6.0\ref\FoodWaste.Domain.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\diren\OneDrive\Bureaublad\Jaar3\Bioscoop\FoodWaste\FoodWaste.Domain\bin\Release\net6.0\Microsoft.AspNetCore.Http.Features.dll

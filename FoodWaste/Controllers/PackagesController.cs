@@ -214,7 +214,8 @@ namespace FoodWaste.WebApp.Controllers
             var package = _packageRepository.GetById(id);
             
             if (package != null) _packageRepository.Delete(package);
-            
+            else return NotFound();
+
             return RedirectToAction(nameof(Index));
         }
 
